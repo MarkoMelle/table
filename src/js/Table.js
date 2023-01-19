@@ -74,12 +74,12 @@ export default class Table {
       tr.dataset.id = i.id;
       tr.dataset.title = i.title;
       tr.dataset.year = i.year;
-      tr.dataset.imdb = i.imdb;
+      tr.dataset.imdb = i.imdb.toFixed(2);
 
       id.textContent = tr.dataset.id;
       title.textContent = tr.dataset.title;
-      year.textContent = tr.dataset.year;
-      imdb.textContent = tr.dataset.imdb;
+      year.textContent = `(${tr.dataset.year})`;
+      imdb.textContent = `imdb:${tr.dataset.imdb}`;
 
       tr.append(id, title, year, imdb);
       trArr.push(tr);
