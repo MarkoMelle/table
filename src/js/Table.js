@@ -93,7 +93,7 @@ export default class Table {
       } if (filter === 'imdb') {
         return Arr.sort((a, b) => a.dataset.imdb - b.dataset.imdb);
       } if (filter === 'title') {
-        return Arr.sort();
+        return Arr.sort((a,b)=>{a.dataset.title.slice(0,1).charCodeAt() - b.dataset.slice(0,1).charCodeAt()});
       }
       return Arr;
     };
