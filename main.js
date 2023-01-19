@@ -4844,6 +4844,8 @@ var web_dom_collections_for_each = __webpack_require__(4747);
 var es_number_to_fixed = __webpack_require__(6977);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.sort.js
 var es_array_sort = __webpack_require__(2707);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(7042);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.to-primitive.js
 var es_symbol_to_primitive = __webpack_require__(6649);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-primitive.js
@@ -4868,8 +4870,6 @@ var es_string_iterator = __webpack_require__(8783);
 var web_dom_collections_iterator = __webpack_require__(3948);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
 var es_array_from = __webpack_require__(1038);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
-var es_array_slice = __webpack_require__(7042);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__(8309);
 ;// CONCATENATED MODULE: ./src/js/Table.js
@@ -4906,6 +4906,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+/* eslint-disable max-len */
 var Table = /*#__PURE__*/function () {
   function Table() {
     _classCallCheck(this, Table);
@@ -5000,7 +5001,9 @@ var Table = /*#__PURE__*/function () {
           });
         }
         if (filter === 'title') {
-          return Arr.sort();
+          return Arr.sort(function (a, b) {
+            return a.dataset.title.slice(0, 1).charCodeAt() - b.dataset.slice(0, 1).charCodeAt();
+          });
         }
         return Arr;
       };
