@@ -5002,7 +5002,7 @@ var Table = /*#__PURE__*/function () {
         }
         if (filter === 'title') {
           return Arr.sort(function (a, b) {
-            return a.dataset.title.slice(0, 1).charCodeAt() - b.dataset.slice(0, 1).charCodeAt();
+            return a.dataset.title.slice(0, 1).charCodeAt() - b.dataset.title.slice(0, 1).charCodeAt();
           });
         }
         return Arr;
